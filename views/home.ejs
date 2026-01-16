@@ -130,7 +130,7 @@
         </form>
         
         <% if (locals.id) { %>
-            <p>URL Generated: <a href="http://localhost:8001/url/<%= id %>">http://localhost:8001/url/<%= id %></a></p>
+            <p>URL Generated: <a href="https://long-url-nu.vercel.app/url/<%= id %>">https://long-url-nu.vercel.app/url/<%= id %></a></p>
         <% } %>
         
         <% if (locals.err) { %>
@@ -154,7 +154,7 @@
                 <% urls.forEach((url, index) => { %>
                 <tr>
                     <td><%= index + 1 %></td>
-                    <td><a href="http://localhost:8001/url/<%= url.shortId %>"><%= url.shortId %></a></td>
+                    <td><a href="https://long-url-nu.vercel.app/url/<%= url.shortId %>"><%= url.shortId %></a></td>
                     <td><%= url.redirectURL %></td>
                     <td><%= url.visitHistory.length %></td>
                 </tr>
