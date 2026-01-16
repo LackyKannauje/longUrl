@@ -1,17 +1,19 @@
 const express = require("express");
 const path = require('path');
+const dotenv = require("dotenv");
+dotenv.config();
 const cookieParser = require('cookie-parser');
 const {restrictToLoggedinUserOnly,checkAuth} = require('./middlewares/auth');
 
 const app = express();
-const PORT = 8001;
+const PORT = process.env.PORT || 8001;
 
 const { connectToMongoDB } = require("./connect");
 const urlRoute = require("./routes/url");
 const userRoute = require("./routes/user");
 const staticRouter = require('./routes/staticRouter');
 
-connectToMongoDB("mongodb://127.0.0.1:27017/short-url");
+connectToMongoDB(process.env.MONGO_URI || "mongodb://127.0.0.1:27017/short-url");
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
